@@ -1,0 +1,9 @@
+[project]
+name = "ecommerce-data-lakehouse"
+version = "0.1.0"
+description = "E-commerce data lakehouse — portfolio project 1"
+requires-python = ">=3.11"
+
+[tool.dagster]
+module_name = "dagster_project.definitions"
+code_location_name = "ecommerce_lakehouse"

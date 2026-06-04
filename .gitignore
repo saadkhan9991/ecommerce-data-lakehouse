@@ -1,0 +1,29 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Dagster local dev artifacts
+.tmp_dagster_home_*/
+dagster_home/
+.dagster/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files (may contain secrets)
+.env
+.env.*
+
+# Spark / Hadoop cache
+.ivy2/
+spark-warehouse/
