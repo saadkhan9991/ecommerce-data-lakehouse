@@ -27,3 +27,14 @@ Thumbs.db
 # Spark / Hadoop cache
 .ivy2/
 spark-warehouse/
+
+# Hive metastore (created by Spark with Hive support)
+metastore_db/
+derby.log
+
+# dbt artifacts
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/.user.yml
+logs/

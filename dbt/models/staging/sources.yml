@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: customers
+      - name: suppliers
+      - name: products
+      - name: inventory
+      - name: orders
+      - name: order_items
+      - name: returns

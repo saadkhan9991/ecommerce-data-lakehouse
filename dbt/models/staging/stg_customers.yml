@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Cleaned and deduplicated customers from the Bronze layer.
+      One row per customer_id. Emails lowercased, strings trimmed,
+      types explicitly cast.
+    columns:
+      - name: customer_id
+        description: "Primary key — unique identifier for each customer"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: email
+        description: "Customer email, lowercased and trimmed"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: first_name
+        description: "Customer first name, trimmed"
+        data_tests:
+          - not_null
+
+      - name: last_name
+        description: "Customer last name, trimmed"
+        data_tests:
+          - not_null
+
+      - name: segment
+        description: "Customer segment: retail, wholesale, or vip"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["retail", "wholesale", "vip"]

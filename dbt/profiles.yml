@@ -1,0 +1,8 @@
+ecommerce_lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: spark
+      method: session
+      schema: default
+      host: localhost
