@@ -37,4 +37,8 @@ dbt/target/
 dbt/dbt_packages/
 dbt/logs/
 dbt/.user.yml
+logs/dbt/target/
+dbt/logs/
+dbt/dbt_packages/
 logs/
+ecommerce_lakehouse/

@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: >
+      Cleaned and deduplicated order line items from the Bronze layer.
+      One row per order_item_id.
+    columns:
+      - name: order_item_id
+        description: "Primary key — unique identifier for each line item"
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "FK to stg_orders"
+        data_tests:
+          - not_null
+      - name: product_id
+        description: "FK to stg_products"
+        data_tests:
+          - not_null
+      - name: quantity
+        description: "Number of units ordered"
+        data_tests:
+          - not_null
+      - name: unit_price
+        description: "Price per unit at time of order"
+        data_tests:
+          - not_null

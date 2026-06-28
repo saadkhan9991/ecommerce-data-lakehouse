@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_inventory
+    description: >
+      Cleaned and deduplicated inventory snapshots from the Bronze layer.
+      One row per inventory_id (product-warehouse combination).
+    columns:
+      - name: inventory_id
+        description: "Primary key — unique identifier for each inventory record"
+        data_tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: "FK to stg_products"
+        data_tests:
+          - not_null
+      - name: warehouse
+        description: "Warehouse code (e.g. KHI-01, LHE-02)"
+        data_tests:
+          - not_null
+      - name: quantity
+        description: "Current stock level"
+        data_tests:
+          - not_null

@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_suppliers
+    description: >
+      Cleaned and deduplicated suppliers from the Bronze layer.
+      One row per supplier_id. Emails lowercased, strings trimmed,
+      types explicitly cast.
+    columns:
+      - name: supplier_id
+        description: "Primary key — unique identifier for each supplier"
+        data_tests:
+          - not_null
+          - unique
+      - name: supplier_name
+        description: "Supplier company name, trimmed"
+        data_tests:
+          - not_null
+      - name: contact_email
+        description: "Supplier contact email, lowercased and trimmed"
+        data_tests:
+          - not_null
+          - unique
+      - name: lead_time_days
+        description: "Average lead time in days for deliveries from this supplier"
+        data_tests:
+          - not_null

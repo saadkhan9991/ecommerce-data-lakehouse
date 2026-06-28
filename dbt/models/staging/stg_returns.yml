@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_returns
+    description: >
+      Cleaned and deduplicated returns from the Bronze layer.
+      One row per return_id. Reason lowercased and trimmed.
+    columns:
+      - name: return_id
+        description: "Primary key — unique identifier for each return"
+        data_tests:
+          - not_null
+          - unique
+      - name: order_item_id
+        description: "FK to stg_order_items — which line item was returned"
+        data_tests:
+          - not_null
+      - name: reason
+        description: "Return reason code"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["defective_product", "wrong_item", "not_as_described", "changed_mind", "damaged_in_shipping"]
+      - name: refund_amount
+        description: "Refund amount issued"
+        data_tests:
+          - not_null

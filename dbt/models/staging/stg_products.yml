@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Cleaned and deduplicated products from the Bronze layer.
+      One row per product_id. Category lowercased, strings trimmed,
+      prices explicitly cast to decimal.
+    columns:
+      - name: product_id
+        description: "Primary key — unique identifier for each product"
+        data_tests:
+          - not_null
+          - unique
+      - name: sku
+        description: "Stock keeping unit code, unique per product"
+        data_tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "Product display name, trimmed"
+        data_tests:
+          - not_null
+      - name: price
+        description: "Retail selling price"
+        data_tests:
+          - not_null
+      - name: cost
+        description: "Cost to the business (COGS)"
+        data_tests:
+          - not_null
+      - name: supplier_id
+        description: "FK to stg_suppliers"
+        data_tests:
+          - not_null

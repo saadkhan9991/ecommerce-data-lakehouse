@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: >
+      Cleaned and deduplicated orders from the Bronze layer.
+      One row per order_id. Status lowercased, strings trimmed.
+    columns:
+      - name: order_id
+        description: "Primary key — unique identifier for each order"
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "FK to stg_customers"
+        data_tests:
+          - not_null
+      - name: status
+        description: "Order status: pending, confirmed, shipped, delivered, or cancelled"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["pending", "confirmed", "shipped", "delivered", "cancelled"]
